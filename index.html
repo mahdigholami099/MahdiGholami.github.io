@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Three.js Example</title>
+  <style>
+    body { margin: 0; }
+    canvas { display: block; }
+  </style>
+  <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.154.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.154.0/examples/jsm/"
+      }
+    }
+  </script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script> -->
+</head>
+<body>
+  <script src="./js/scene.js" type="module"></script>
+  <script src="./js/light.js" type="module" defer></script>
+  <script src="./js/postProcess.js" type="module" defer></script>
+  <!-- <script src="./js/geometry.js" type="module" defer></script> -->
+  <script src="./js/room.js" type="module" defer></script>
+  <script src="./js/chair.js" type="module" defer></script>  
+  <script src="./js/pcTable.js" type="module" defer></script>
+  <script src="./js/gamingLight.js" type="module" defer></script>
+  <script src="./js/trashCan.js" type="module" defer></script>
+  <script src="./js/guitar.js" type="module" defer></script>
+  <script src="./js/sofa.js" type="module" defer></script>
+  <script src="./js/teaTable.js" type="module" defer></script>
+  <script src="./js/tv.js" type="module" defer></script>
+  <script src="./js/carpet.js" type="module" defer></script>
+</body>
+</html>
