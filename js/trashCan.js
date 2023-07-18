@@ -1,27 +1,16 @@
 import { scene } from "./scene.js";
+import { loadingManager } from "./load.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 
-const loader = new GLTFLoader();
+const loader = new GLTFLoader(loadingManager);
 
-loader.load(
-  "../models/trashCan.glb",
-  function (gltf) {
-    // Add the loaded model to the scene
-    const model = gltf.scene;
-    model.traverse((node) => {
+loader.load("../models/trashCan.glb", function (gltf) {
+  const model = gltf.scene;
+  model.traverse((node) => {
+    node.castShadow = true;
+    if (node.isMesh) {
       node.castShadow = true;
-      if (node.isMesh) {
-        node.castShadow = true;
-      }
-    });
-    scene.add(model);
-  },
-  function (xhr) {
-    // Progress callback (optional)
-    // console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
-  },
-  function (error) {
-    // Error callback (optional)
-    console.error("Error loading .glb file:", error);
-  }
-);
+    }
+  });
+  scene.add(model);
+});
