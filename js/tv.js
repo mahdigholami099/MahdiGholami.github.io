@@ -14,7 +14,7 @@ loader.load("../models/tv.glb", function (gltf) {
     gifTextureFrames.push(textureLoader.load(`../movie/spider-man/${i}.jpg`));
   }
 
-  model.getObjectByName("Object_252").material = new THREE.MeshBasicMaterial({
+  model.getObjectByName("Plane").material = new THREE.MeshBasicMaterial({
     map: gifTextureFrames[0],
   });
 
@@ -61,7 +61,7 @@ loader.load("../models/tv.glb", function (gltf) {
   function animate() {
     requestAnimationFrame(animate);
     const currentFrame = Math.floor((performance.now() / 100) % 115);
-    model.getObjectByName("Object_252").material.map =
+    model.getObjectByName("Plane").material.map =
       gifTextureFrames[currentFrame];
 
     function getAvrageUsedColor(imageData) {

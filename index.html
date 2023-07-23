@@ -1,36 +1,115 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <title>Mahdi Gholami</title>
   <style>
-    body { margin: 0; }
-    canvas { display: block; }
-    .progress-bar-container { 
+    body {
+      margin: 0;
+    }
+
+    canvas {
+      display: block;
+    }
+
+    .progress-bar-container {
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
       width: 100%;
       height: 100%;
-      background-color: rgba(0,0,0,1);
+      background-color: rgba(0, 0, 0, 1);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
     }
+
     #progress-bar {
       width: 30%;
       margin-top: 0.5%;
       height: 2%;
     }
+
     label {
       color: white;
       font-size: 2rem;
+    }
 
+    .go-back-container {
+      position: absolute;
+      left: 50%;
+      top: 90%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 10%;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #go-back-btn {
+      appearance: none;
+      background-color: #FAFBFC;
+      border: 1px solid rgba(27, 31, 35, 0.15);
+      border-radius: 6px;
+      box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+      box-sizing: border-box;
+      color: #24292E;
+      cursor: pointer;
+      display: inline-block;
+      font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 20px;
+      list-style: none;
+      padding: 6px 16px;
+      position: relative;
+      transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      vertical-align: middle;
+      white-space: nowrap;
+      word-wrap: break-word;
+    }
+
+    #go-back-btn:hover {
+      background-color: #c0c0c0;
+      text-decoration: none;
+      transition-duration: 0.1s;
+    }
+
+    #go-back-btn:disabled {
+      background-color: #FAFBFC;
+      border-color: rgba(27, 31, 35, 0.15);
+      color: #959DA5;
+      cursor: default;
+    }
+
+    #go-back-btn:active {
+      background-color: #EDEFF2;
+      box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+      transition: none 0s;
+    }
+
+    #go-back-btn:focus {
+      outline: 1px transparent;
+    }
+
+    #go-back-btn:before {
+      display: none;
+    }
+
+    #go-back-btn:-webkit-details-marker {
+      display: none;
     }
   </style>
   <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
 
   <script type="importmap">
     {
@@ -40,12 +119,16 @@
       }
     }
   </script>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script> -->
 </head>
+
 <body>
   <div class="progress-bar-container">
     <label for="progress-bar">You are about to visit my personal website ...</label>
     <progress id="progress-bar" value="0" max="100"></progress>
+  </div>
+
+  <div class="go-back-container">
+    <button id="go-back-btn">Go Back</button>
   </div>
 
 
@@ -55,7 +138,7 @@
   <script src="./js/postProcess.js" type="module" defer></script>
   <!-- <script src="./js/geometry.js" type="module" defer></script> -->
   <script src="./js/room.js" type="module" defer></script>
-  <script src="./js/chair.js" type="module" defer></script>  
+  <script src="./js/chair.js" type="module" defer></script>
   <script src="./js/pcTable.js" type="module" defer></script>
   <script src="./js/gamingLight.js" type="module" defer></script>
   <script src="./js/trashCan.js" type="module" defer></script>
@@ -64,5 +147,9 @@
   <script src="./js/teaTable.js" type="module" defer></script>
   <script src="./js/tv.js" type="module" defer></script>
   <script src="./js/carpet.js" type="module" defer></script>
+  <script src="./js/certificates.js" type="module" defer></script>
+  <script src="./js/menu.js" type="module" defer></script>
+  <script src="./js/raycast.js" type="module" defer></script>
 </body>
+
 </html>

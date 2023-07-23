@@ -12,8 +12,14 @@ document.body.appendChild(renderer.domElement);
 const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
 
 const controls = new OrbitControls(camera, renderer.domElement);
+controls.enablePan = false;
+controls.enableDamping = true;
+controls.maxPolarAngle = Math.PI / 2;
+controls.maxAzimuthAngle = Math.PI / 1.8;
+controls.minAzimuthAngle = -Math.PI / 11;
+controls.maxDistance = 40;
 camera.position.set(20, 20, 20);
-controls.update();
+
 
 scene.background = new THREE.Color(0x333333);
 scene.backgroundBlurriness = 1;
@@ -21,9 +27,10 @@ scene.backgroundBlurriness = 1;
 // commented becuse of postprocess
 function animate() {
 	requestAnimationFrame( animate );
+	controls.update();
 	renderer.render( scene, camera );
 }
 animate();
 
 
-export { scene, renderer, camera };
+export { scene, renderer, camera, controls };

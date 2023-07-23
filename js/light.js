@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import { scene } from "./scene.js";
 
-const dLight = new THREE.DirectionalLight("0xFFFFFF", 0.2);
+const dLight = new THREE.DirectionalLight("0xFFFFFF", 0.5);
 dLight.position.set(20, 20, 20);
 dLight.castShadow = true;
 dLight.shadow.camera.left = -50;
