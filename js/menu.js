@@ -2,37 +2,35 @@ import * as THREE from "three";
 import { scene, camera, controls } from "./scene.js";
 import { TextGeometry } from "three/addons/geometries/TextGeometry.js";
 import { FontLoader } from "three/addons/loaders/FontLoader.js";
+import { Menu } from "./menuClass.js";
 
 const XPosition = -9.532;
 const YPosition = 8;
 const ZPosition = -4;
 const YStepAdder = 1.5;
 
-let lastCameraPosition;
-let lastTarget = new THREE.Vector3(0,0,0);
+const buttonContainer = document.querySelector(".button-container");
+const prevButton = document.getElementById("previous-btn");
+const closeButton = document.getElementById("close-btn");
+const nextButton = document.getElementById("next-btn");
+
+const mySkill = new Menu(
+  [new THREE.Vector3(-3, 10, -5)],
+  [new THREE.Vector3(-3, 9, -8.06)],
+  [35],
+  [115],
+  [-45],
+  [45],
+  [3],
+  [4],
+  buttonContainer,
+  prevButton,
+  closeButton,
+  nextButton
+);
 
 const mySkillsOnClick = () => {
-  lastCameraPosition = camera.position.clone();
-
-  gsap.to(camera.position, {
-    duration: 2,
-    x: -3,
-    y: 10,
-    z: -5,
-  });
-
-  gsap.to(lastTarget, {
-    duration: 2,
-    x: -3,
-    y: 9,
-    z: -8.06,
-    onUpdate: () => {
-      camera.lookAt(lastTarget);
-      controls.target.copy(lastTarget);
-    }
-  });
-
-  document.querySelector(".go-back-container").style.display = "flex";
+  mySkill.start();
 };
 const myProjectsOnClick = () => {};
 const aboutMeOnClick = () => {};
@@ -107,28 +105,4 @@ MenuList.forEach((slot, index) => {
       scene.add(plane);
     }
   );
-});
-
-
-document.getElementById("go-back-btn").addEventListener("click", (event) => {
-
-  gsap.to(camera.position, {
-    duration: 2,
-    x: lastCameraPosition.x,
-    y: lastCameraPosition.y,
-    z: lastCameraPosition.z,
-  });
-
-  gsap.to(lastTarget, {
-    duration: 2,
-    x: 0,
-    y: 0,
-    z: 0,
-    onUpdate: () => {
-      camera.lookAt(lastTarget);
-      controls.target.copy(lastTarget);
-    }
-  });
-
-  document.querySelector(".go-back-container").style.display = "none";
 });

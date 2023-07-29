@@ -38,7 +38,7 @@
       font-size: 2rem;
     }
 
-    .go-back-container {
+    .button-container {
       position: absolute;
       left: 50%;
       top: 90%;
@@ -46,12 +46,13 @@
       width: 100%;
       height: 10%;
       display: none;
-      flex-direction: column;
+      flex-direction: row;
+      gap: 5px;
       justify-content: center;
       align-items: center;
     }
 
-    #go-back-btn {
+    .button {
       appearance: none;
       background-color: #FAFBFC;
       border: 1px solid rgba(27, 31, 35, 0.15);
@@ -77,34 +78,34 @@
       word-wrap: break-word;
     }
 
-    #go-back-btn:hover {
+    .button:hover {
       background-color: #c0c0c0;
       text-decoration: none;
       transition-duration: 0.1s;
     }
 
-    #go-back-btn:disabled {
+    .button:disabled {
       background-color: #FAFBFC;
       border-color: rgba(27, 31, 35, 0.15);
       color: #959DA5;
       cursor: default;
     }
 
-    #go-back-btn:active {
+    .button:active {
       background-color: #EDEFF2;
       box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
       transition: none 0s;
     }
 
-    #go-back-btn:focus {
+    .button:focus {
       outline: 1px transparent;
     }
 
-    #go-back-btn:before {
+    .button:before {
       display: none;
     }
 
-    #go-back-btn:-webkit-details-marker {
+    .button:-webkit-details-marker {
       display: none;
     }
   </style>
@@ -127,8 +128,10 @@
     <progress id="progress-bar" value="0" max="100"></progress>
   </div>
 
-  <div class="go-back-container">
-    <button id="go-back-btn">Go Back</button>
+  <div class="button-container">
+    <button id="previous-btn" class="button" disabled>Previous</button>
+    <button id="close-btn" class="button">Close</button>
+    <button id="next-btn" class="button">Next</button>
   </div>
 
 
@@ -148,6 +151,8 @@
   <script src="./js/tv.js" type="module" defer></script>
   <script src="./js/carpet.js" type="module" defer></script>
   <script src="./js/certificates.js" type="module" defer></script>
+  <script src="./js/books.js" type="module" defer></script>
+  <script src="./js/projects.js" type="module" defer></script>
   <script src="./js/menu.js" type="module" defer></script>
   <script src="./js/raycast.js" type="module" defer></script>
 </body>

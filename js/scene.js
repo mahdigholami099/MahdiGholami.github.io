@@ -18,6 +18,7 @@ controls.maxPolarAngle = Math.PI / 2;
 controls.maxAzimuthAngle = Math.PI / 1.8;
 controls.minAzimuthAngle = -Math.PI / 11;
 controls.maxDistance = 40;
+controls.minDistance = 30;
 camera.position.set(20, 20, 20);
 
 
