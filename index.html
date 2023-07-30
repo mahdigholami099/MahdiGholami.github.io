@@ -108,6 +108,30 @@
     .button:-webkit-details-marker {
       display: none;
     }
+
+    .project-desc {
+      background-color: rgba(130, 130, 130, 0.8);
+      position: absolute;
+      right: 5%;
+      top: 10%;
+      width: 30%;
+      height: 80%;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 25px;
+    }
+
+    .project-desc h3 {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+
+    .project-desc a {
+      color: black;
+      text-decoration: underline;
+    }
   </style>
   <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
@@ -134,6 +158,37 @@
     <button id="next-btn" class="button">Next</button>
   </div>
 
+  <div class="project-desc" id="Valock">
+    <a href="https://github.com/mahdigholami099/VaLock">
+      <h1>Valock</h1>
+    </a>
+    <h3>
+      I've created a program for the instance lock of agents in Valorant, the popular game where players need to choose
+      and lock their preferred agent before a match begins. This program simplifies the agent selection process by
+      automating the locking mechanism. With my fan-made project, you can ensure that your desired agent is locked in
+      quickly and efficiently, allowing you to focus on strategizing and maximizing your gameplay experience.
+    </h3>
+  </div>
+
+  <div class="project-desc" id="Sci-Fi Rumble">
+    <a href="https://github.com/mahdigholami099/SciFiRumble">
+      <h1>Sci-Fi Rumble</h1>
+    </a>
+    <h3>
+      SciFiRumble is a fun and simple local multiplayer game that features sci-fi cars and controller-based rumble
+      mechanics. Enjoy thrilling battles with AI opponents as you control your futuristic car.
+    </h3>
+  </div>
+
+  <div class="project-desc" id="Cave Spline Creator">
+    <a href="https://github.com/mahdigholami099/Cave-Spline-Creator">
+      <h1>Cave Spline Creator</h1>
+    </a>
+    <h3>
+      Cave Spline Creator is an open-source project hosted on GitHub that aims to simplify the process of creating
+      cave-like structures or environments in computer graphics and game development.
+    </h3>
+  </div>
 
   <script src="./js/scene.js" type="module"></script>
   <script src="./js/load.js" type="module"></script>

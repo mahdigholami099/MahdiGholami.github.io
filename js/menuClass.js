@@ -27,7 +27,8 @@ class Menu {
     buttonContainer,
     prevButton,
     closeButton,
-    nextButton
+    nextButton,
+    stageCallBack
   ) {
     if (Array.isArray(cameraPositions)) {
       if (cameraPositions.length === 0)
@@ -56,6 +57,7 @@ class Menu {
     this.prevButton = prevButton;
     this.closeButton = closeButton;
     this.nextButton = nextButton;
+    this.stageCallBack = stageCallBack;
   }
 
   #freeCameraLimit() {
@@ -68,6 +70,7 @@ class Menu {
   }
 
   close() {
+    this.stageCallBack(-1);
     this.#freeCameraLimit();
     this.buttonContainer.style.display = "none";
 
@@ -127,12 +130,13 @@ class Menu {
         controls.minDistance = this.#minDistance[this.#currentStage];
         controls.maxDistance = this.#maxDistance[this.#currentStage];
         this.buttonContainer.style.display = "flex";
-
+        this.stageCallBack(this.#currentStage);
       },
     });
   }
 
   nextPage() {
+    this.stageCallBack(-1);
     this.buttonContainer.style.display = "none";
     this.#currentStage++;
     this.#goToCurrentStage();
@@ -147,6 +151,7 @@ class Menu {
   }
 
   previousPage() {
+    this.stageCallBack(-1);
     this.buttonContainer.style.display = "none";
     this.#currentStage--;
     this.#goToCurrentStage();

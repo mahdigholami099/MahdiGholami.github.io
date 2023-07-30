@@ -26,13 +26,36 @@ const mySkill = new Menu(
   buttonContainer,
   prevButton,
   closeButton,
-  nextButton
+  nextButton,
+  (e)=>{}
+);
+
+const myProjects = new Menu(
+  [new THREE.Vector3(1, 10, -5), new THREE.Vector3(4.65, 10, -5), new THREE.Vector3(6.7, 10, -5)],
+  [new THREE.Vector3(1, 9, -8.06), new THREE.Vector3(4.65, 9, -8.06), new THREE.Vector3(6.7, 9, -8.06)],
+  [35, 35, 35],
+  [115, 115, 115],
+  [-30, -30, -30],
+  [30, 30, 30],
+  [3, 3, 3],
+  [4, 4, 4],
+  buttonContainer,
+  prevButton,
+  closeButton,
+  nextButton,
+  (e)=>{
+    document.getElementById("Sci-Fi Rumble").style.display = e == 0 ? "flex" : "none";
+    document.getElementById("Valock").style.display = e == 1 ? "flex" : "none";
+    document.getElementById("Cave Spline Creator").style.display = e == 2 ? "flex" : "none";
+  }
 );
 
 const mySkillsOnClick = () => {
   mySkill.start();
 };
-const myProjectsOnClick = () => {};
+const myProjectsOnClick = () => {
+  myProjects.start();
+};
 const aboutMeOnClick = () => {};
 
 const MenuList = [

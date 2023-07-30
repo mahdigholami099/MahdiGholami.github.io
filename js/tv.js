@@ -85,10 +85,9 @@ loader.load("../models/tv.glb", function (gltf) {
 
     try {
       const canvas = document.createElement("canvas");
-      canvas.willReadFrequently = true;
       canvas.width = gifTextureFrames[currentFrame].image.width;
       canvas.height = gifTextureFrames[currentFrame].image.height;
-      const ctx = canvas.getContext("2d");
+      const ctx = canvas.getContext("2d", {willReadFrequently : true});
       ctx.drawImage(gifTextureFrames[currentFrame].image, 0, 0);
 
       const topLeftColor = getAvrageUsedColor(
