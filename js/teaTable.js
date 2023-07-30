@@ -38,7 +38,7 @@ loader.load("../models/tableLamp.glb", function (gltf) {
   });
 
   const pLightTable = new THREE.PointLight(
-    new THREE.Color(150, 150, 150),
+    new THREE.Color(1, 1, 1),
     0.08,
     2
   );
