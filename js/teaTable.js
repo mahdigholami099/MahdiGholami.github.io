@@ -24,17 +24,17 @@ loader.load("../models/tableLamp.glb", function (gltf) {
   });
   scene.add(model);
 
-  const color = new THREE.Color(10, 10, 10);
+  const color = new THREE.Color(1, 1, 1);
 
   model.getObjectByName("Object_7").material = new THREE.MeshStandardMaterial({
     color: color,
     emissive: color,
-    emissiveIntensity: 0,
+    emissiveIntensity: 1,
   });
   model.getObjectByName("Object_8").material = new THREE.MeshStandardMaterial({
     color: color,
     emissive: color,
-    emissiveIntensity: 0,
+    emissiveIntensity: 1,
   });
 
   const pLightTable = new THREE.PointLight(
