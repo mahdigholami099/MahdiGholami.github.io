@@ -58,6 +58,9 @@ class Menu {
     this.closeButton = closeButton;
     this.nextButton = nextButton;
     this.stageCallBack = stageCallBack;
+    this.prevButtonHandler = this.previousPage.bind(this);
+    this.nextButtonHandler = this.nextPage.bind(this);
+    this.closeButtonHandler = this.close.bind(this);
   }
 
   #freeCameraLimit() {
@@ -70,6 +73,9 @@ class Menu {
   }
 
   close() {
+    this.prevButton.removeEventListener("click", this.prevButtonHandler);
+    this.nextButton.removeEventListener("click", this.nextButtonHandler);
+    this.closeButton.removeEventListener("click", this.closeButtonHandler);
     this.stageCallBack(-1);
     this.#freeCameraLimit();
     this.buttonContainer.style.display = "none";
@@ -174,11 +180,11 @@ class Menu {
       this.nextButton.style.display = "none";
     } else {
       this.nextButton.style.display = "inline-block";
-      this.prevButton.addEventListener("click", this.previousPage.bind(this));
-      this.nextButton.addEventListener("click", this.nextPage.bind(this));
+      this.prevButton.addEventListener("click", this.prevButtonHandler);
+      this.nextButton.addEventListener("click", this.nextButtonHandler);
     }
 
-    this.closeButton.addEventListener("click", this.close.bind(this));
+    this.closeButton.addEventListener("click", this.closeButtonHandler);
 
     this.#currentStage = 0;
     this.buttonContainer.style.display = "none";
