@@ -15,14 +15,14 @@ const closeButton = document.getElementById("close-btn");
 const nextButton = document.getElementById("next-btn");
 
 const mySkill = new Menu(
-  [new THREE.Vector3(-3, 10, -5)],
-  [new THREE.Vector3(-3, 9, -8.06)],
-  [35],
-  [115],
-  [-45],
-  [45],
-  [3],
-  [4],
+  [new THREE.Vector3(-3, 10, -5), new THREE.Vector3(-3, 2.5, -5)],
+  [new THREE.Vector3(-3, 9, -8.06), new THREE.Vector3(-3, 2, -8.06)],
+  [35, 55],
+  [115, 95],
+  [-45, -45],
+  [45, 45],
+  [3, 3],
+  [4, 4],
   buttonContainer,
   prevButton,
   closeButton,

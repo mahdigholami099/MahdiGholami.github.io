@@ -127,6 +127,7 @@ class Menu {
         controls.minDistance = this.#minDistance[this.#currentStage];
         controls.maxDistance = this.#maxDistance[this.#currentStage];
         this.buttonContainer.style.display = "flex";
+
       },
     });
   }
@@ -135,34 +136,48 @@ class Menu {
     this.buttonContainer.style.display = "none";
     this.#currentStage++;
     this.#goToCurrentStage();
+
+    this.prevButton.style.display = "inline-block";
+    if(this.#currentStage+1 >= this.#pageNumber) {
+      this.nextButton.style.display = "none";
+    }
+    else {
+      this.nextButton.style.display = "inline-block";
+    }
   }
 
   previousPage() {
     this.buttonContainer.style.display = "none";
     this.#currentStage--;
     this.#goToCurrentStage();
+
+    this.nextButton.style.display = "inline-block";
+
+    if(this.#currentStage <= 0) {
+      this.prevButton.style.display = "none";
+    }
+    else {
+      this.prevButton.style.display = "inline-block";
+    }
   }
 
   start() {
     this.#lastCameraPos = camera.position.clone();
     this.#lastCameraLookAt = new THREE.Vector3(0, 0, 0);
-    if (this.pageNumber == 1) {
-      this.prevButton.style.display = "none";
+    this.prevButton.style.display = "none";
+    if (this.#pageNumber == 1) {
       this.nextButton.style.display = "none";
     } else {
-      this.prevButton.style.display = "inline-block";
-      this.prevButton.disabled = true;
       this.nextButton.style.display = "inline-block";
-      this.nextButton.disabled = false;
-
       this.prevButton.addEventListener("click", this.previousPage.bind(this));
       this.nextButton.addEventListener("click", this.nextPage.bind(this));
     }
 
     this.closeButton.addEventListener("click", this.close.bind(this));
 
-    this.#currentStage = -1;
-    this.nextPage();
+    this.#currentStage = 0;
+    this.buttonContainer.style.display = "none";
+    this.#goToCurrentStage();
   }
 }
 
